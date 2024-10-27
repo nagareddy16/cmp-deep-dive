@@ -1,9 +1,7 @@
-    <div id="traffic">
-        <p>Last 7 Days</p>
+<p>Last 7 Days</p>
 
-        <div id="chart">
-            @for(datapoint of dummyTrafficdata; track datapoint.id){
-                <div [style.height]="(datapoint.value /maxTraffic) * 100 + '%'"></div>
-            }
-        </div>
-    </div>
+<div id="chart">
+    @for(datapoint of dummyTrafficdata; track datapoint.id){
+    <div [style.height]="(datapoint.value /maxTraffic) * 100 + '%'"></div>
+    }
+</div>
