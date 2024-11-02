@@ -12,14 +12,17 @@ import { FormsModule } from '@angular/forms';
 })
 export class NewTicketComponent {
 
-  /* 
-  using the directives
-  @ViewChild('form') form?: ElementRef<HTMLFormElement>; */
+  /* using the directives*/
+  @ViewChild('form') form?: ElementRef<HTMLFormElement>; 
 
-  /* using the viewChild signal function */
+  /* using the viewChild signal function 
   private form = viewChild<ElementRef<HTMLFormElement>>('form');
-
-  /* or 
+  onSubmit(title : string, request : string){
+    console.log("title: ", title);
+    console.log("request: ", request);
+    this.form()?.nativeElement.reset();
+  }
+     (or) 
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
   onSubmit(title : string, request : string){
@@ -32,7 +35,7 @@ export class NewTicketComponent {
   onSubmit(title : string, request : string){
     console.log("title: ", title);
     console.log("request: ", request);
-    this.form()?.nativeElement.reset();
+    this.form?.nativeElement.reset();
   }
 
 }
