@@ -18,7 +18,7 @@ export class TicketStatusComponent {
     this.detailVisible.update((wasVisible) => !wasVisible);
   }
 
-  onMarskAsComplete(){
-    this.close.emit();
-  }
+ onMarkAsComplete(){
+  this.close.emit();
+ }
 }
