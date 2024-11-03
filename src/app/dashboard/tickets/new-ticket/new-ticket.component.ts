@@ -1,4 +1,4 @@
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import { afterNextRender, afterRender, Component, ElementRef, viewChild, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,16 @@ export class NewTicketComponent {
 
   /* using the directives*/
   @ViewChild('form') form?: ElementRef<HTMLFormElement>; 
+
+  constructor(){
+    afterRender(() => {
+      console.log("afterRender");
+    });
+
+    afterNextRender(()=> {
+      console.log("after next render");
+    });
+  }
 
   /* using the viewChild signal function 
   private form = viewChild<ElementRef<HTMLFormElement>>('form');
