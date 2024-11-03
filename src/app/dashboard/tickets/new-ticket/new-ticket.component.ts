@@ -14,17 +14,20 @@ export class NewTicketComponent {
 
   /* using the directives*/
   @ViewChild('form') form?: ElementRef<HTMLFormElement>; 
+
+  enteredTitle = '';
+  enteredText = '';
   add = output<{title: string, text: string}>();
 
   constructor(){}
 
-
-  onSubmit(title : string, request : string){
+  onSubmit(){
     this.add.emit({
-      title : title,
-      text : request
+      title : this.enteredTitle,
+      text : this.enteredText
     });
-    this.form?.nativeElement.reset();
+    this.enteredTitle = '';
+    this.enteredText = '';
   }
 
 }
