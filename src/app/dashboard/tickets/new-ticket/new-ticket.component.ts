@@ -1,4 +1,4 @@
-import { afterNextRender, afterRender, Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import { afterNextRender, afterRender, Component, ElementRef, output, viewChild, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../../../shared/button/button.component';
 import { ControlComponent } from "../../../shared/control/control.component";
 import { FormsModule } from '@angular/forms';
@@ -14,29 +14,16 @@ export class NewTicketComponent {
 
   /* using the directives*/
   @ViewChild('form') form?: ElementRef<HTMLFormElement>; 
+  add = output<{title: string, text: string}>();
 
   constructor(){}
 
-  /* using the viewChild signal function 
-  private form = viewChild<ElementRef<HTMLFormElement>>('form');
-  onSubmit(title : string, request : string){
-    console.log("title: ", title);
-    console.log("request: ", request);
-    this.form()?.nativeElement.reset();
-  }
-     (or) 
-  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
   onSubmit(title : string, request : string){
-    console.log("title: ", title);
-    console.log("request: ", request);
-    this.form().nativeElement.reset();
-  }
-  */
-
-  onSubmit(title : string, request : string){
-    console.log("title: ", title);
-    console.log("request: ", request);
+    this.add.emit({
+      title : title,
+      text : request
+    });
     this.form?.nativeElement.reset();
   }
 

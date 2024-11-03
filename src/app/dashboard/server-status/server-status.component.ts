@@ -14,12 +14,7 @@ export class ServerStatusComponent implements OnInit{
 
   constructor(){
     effect((onCleanup) => {
-      const timer = setTimeout(() => {
-        console.log(this.currentStatus());
-      }, 1000);
-      onCleanup(() => {
-        clearTimeout(timer);
-      });
+      console.log(this.currentStatus());
     });
     
   }
