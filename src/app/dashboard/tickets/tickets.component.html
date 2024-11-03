@@ -1,7 +1,7 @@
 <div>
     <ul>
         @for (ticket of tickets; track ticket.id) {
-            <app-ticket-status [data]="ticket" />
+            <app-ticket-status [data]="ticket"  (close)="onCloseTicket(ticket.id)"/>
         }
     </ul>
 </div>
