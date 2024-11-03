@@ -15,15 +15,7 @@ export class NewTicketComponent {
   /* using the directives*/
   @ViewChild('form') form?: ElementRef<HTMLFormElement>; 
 
-  constructor(){
-    afterRender(() => {
-      console.log("afterRender");
-    });
-
-    afterNextRender(()=> {
-      console.log("after next render");
-    });
-  }
+  constructor(){}
 
   /* using the viewChild signal function 
   private form = viewChild<ElementRef<HTMLFormElement>>('form');
